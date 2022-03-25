@@ -63,7 +63,7 @@ const mockError = {
 
 test("renders post", async () => {
   await act(async () => {
-    await axios.post.mockResolvedValueOnce(() =>
+    await axios.post.mockImplementationOnce(() =>
       Promise.resolve(mockResponse)
     );
     render(<PostSection />);
