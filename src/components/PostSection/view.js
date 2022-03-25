@@ -48,23 +48,31 @@ function PostSection() {
         <div className="form-group">
           <input
             type="text"
+            data-testid="title-input"
             className="form-control"
             onChange={(e) => setTitle(e.target.value)}
+            value={title}
             placeholder="Title"
           />
         </div>
         <div className="form-group">
           <input
             type="text"
+            data-testid="description-input"
             className="form-control"
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Description"
           />
         </div>
-        <button className="btn btn-sm btn-primary" onClick={postData}>
+        <button
+          data-testid="post-button"
+          className="btn btn-sm btn-primary"
+          onClick={postData}
+        >
           Post Data
         </button>
         <button
+          data-testid="clear-button"
           className="btn btn-sm btn-warning ml-2"
           onClick={clearPostOutput}
         >
@@ -72,13 +80,13 @@ function PostSection() {
         </button>
         <div className="alert alert-primary mt-2" role="alert">
           <span>{`Title: ${title}`}</span>
-          <br/>
+          <br />
           <span>{`Description: ${description}`}</span>
         </div>
         {postResult && (
           <>
             <div className="alert alert-secondary mt-2" role="alert">
-              <pre>{formatResponse(postResult)}</pre>
+              <pre data-testid="response">{formatResponse(postResult)}</pre>
             </div>
             {!isError && (
               <div className="alert alert-success mt-2" role="alert">
